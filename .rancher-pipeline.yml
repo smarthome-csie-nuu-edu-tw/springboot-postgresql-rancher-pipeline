@@ -1,2 +1,11 @@
+stages:
+- name: build and push docker image
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: ${CICD_GIT_REPO_NAME}/${CICD_GIT_REPO_NAME}:${CICD_GIT_BRANCH}-${CICD_GIT_COMMIT}
+      pushRemote: true
+      registry: reg.406.csie.nuu.edu.tw
 timeout: 60
 notification: {}
